@@ -5,56 +5,57 @@ var generateBtn = document.querySelector("#generate");
 var passwordText = document.querySelector("#password");
 
 //list of password characters
-var upperLetters= ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
-var lowerLetters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-var specialCharaters = ['#','$','%','&','(',')','*','+',',','-','.','/',':',';','<','=','>','?','@','['];
-var numericCharaters = [0,1,2,3,4,5,6,7,8,9];
+var upperLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+var lowerLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+var specialCharaters = ['#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '['];
+var numericCharaters = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 
 //Accepted password criteria
-function passwordCriteria(){
+function passwordCriteria() {
 
-    // Allowing users to enter number prefrerred characters and caution about minimum characters 
+    // setting minimum and maximum character length and caution about minimum characters 
     var passwordLength = parseInt(prompt("How many characters do you prefer?, NB: Password must be minimum of 8 characters"));
 
-if (passwordLength < 8) {
-    alert('The password must be at least 8 characters!');
-}
-if (passwordLength > 128) {
-    alert('The password must be less than 128 characters!');
-}
+    /*the length is validated once the user does not receive alerts
+    NB: User receives alert once charater length do not match */
 
-//prompt user for lowercase characters
-var lowercase = confirm("Do you want to include lowercase characters?");
+    if (passwordLength < 8) {
+        alert('The password must be at least 8 characters!');
+    }
+    if (passwordLength > 128) {
+        alert('The password must be less than 128 characters!');
+    }
 
-//prompt user for uppercase characters
-var uppercase = confirm("Do you want to include uppercase characters?");
+    //Ask user to confirm characters in order of lowercase, uppercase, numbers and special characters
+    var confirmLowercase = confirm("Do you want to include lowercase characters?");
 
-//prompt user for numeric characters
-var numbers = confirm("Do you want to include numbers?");
+    var confirmUppercase = confirm("Do you want to include uppercase characters?");
 
-//prompt user for special characters
-var specialCharacters = confirm("Do you want to include special characters?");
+    var confirmNumbers = confirm("Do you want to include numbers?");
 
-if (!lowercase && !uppercase && !numbers && !specialCharacters) {
-    alert("Your password must contain at least one lowerscase, uppercase, number and a special character");
-}
+    var confirmSpecialCharacters = confirm("Do you want to include special characters?");
 
-var criteriaQuestions = {
-    lengthOfPassword: passwordLength,
-    smallLetters: lowercase,
-    capitalLetters: uppercase,
-    numeric: numbers,
-    exceptionalCharacters: specialCharacters
-}
+    //Alert user that passsword is invalid
+    if (!confirmLowercase && !confirmUppercase && !confirmNumbers && !confirmSpecialCharacters) {
+        alert("Your password must contain at least one lowerscase, uppercase, number and a special character");
+    }
 
-return criteriaQuestions
+    var criteriaQuestions = {
+        lengthOfPassword: passwordLength,
+        smallLetters: confirmLowercase,
+        capitalLetters: confirmUppercase,
+        numeric: confirmNumbers,
+        exceptionalCharacters: confirmSpecialCharacters
+    }
+
+    return criteriaQuestions
 
 }
 
 
 //how the generateBtn should function
-function generatePassword(){
+function generatePassword() {
 
     var options = passwordCriteria();
     console.log(options)
@@ -66,29 +67,38 @@ function generatePassword(){
         for (i = 0; i < specialCharaters.length; ++i) {
             passwordStream.push(specialCharaters[i]);
         }
-    } 
+        console.log(passwordStream)
+    }
     if (options.numeric) {
         for (i = 0; i < numericCharaters.length; ++i) {
-        passwordStream.push(numericCharaters[i]);
+            passwordStream.push(numericCharaters[i]);
         }
+        console.log(passwordStream)
     }
     if (options.smallLetters) {
         for (i = 0; i < lowerLetters.length; ++i) {
-        passwordStream.push(lowerLetters[i]);
+            passwordStream.push(lowerLetters[i]);
         }
+        console.log(passwordStream)
     }
     if (options.capitalLetters) {
         for (i = 0; i < upperLetters.length; ++i) {
-        passwordStream.push(upperLetters[i]);
+            passwordStream.push(upperLetters[i]);
         }
+        console.log(passwordStream)
     }
 
+    debugger
+    var finalPassword = [];
 
-var finalPassword = [];
+    for (let i = 0; i < options.lengthOfPassword; ++i) {
 
-    for (let i = 0; i < options.length; ++i) {
-        var randomPicker = Math.floor(Math.random() * Math.floor(passwordStream.length));
-         finalPassword.push(passwordStream[randomPicker])
+        /*var silly= passwordStream.length;
+        var passLenFloor= Math.floor(silly);
+        var rand = Math.random();
+        var randomSelector = Math.floor(rand * passLenFloor);*/
+        var randomSelector = Math.floor(Math.random() * Math.floor(passwordStream.length));
+        finalPassword.push(passwordStream[randomSelector])
     }
 
     console.log(finalPassword)
