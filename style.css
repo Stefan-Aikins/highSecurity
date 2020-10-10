@@ -30,6 +30,34 @@ header {
   color: hsl(206, 17%, 28%);
 }
 
+.intro{
+    text-align: center;
+}
+
+ul li{
+    font-weight: bold;
+}
+
+/* styling app haeding level two*/
+#app-name{
+    font-weight: bold;  
+}
+
+div h4{
+    text-align: left;
+    color: orange;
+    font-weight: bolder;
+    margin-top: 30px;
+}
+
+/*lock icon*/
+#lock{
+    width: 70%;
+    height: 230px;
+    margin-top:24px;
+    margin-bottom: 24px;
+}
+
 .card {
   background-color: hsl(0, 0%, 100%);
   border-radius: 5px;
@@ -74,8 +102,10 @@ header {
 
 .btn {
   border: none;
-  background-color: hsl(360, 91%, 36%);
-  border-radius: 25px;
+
+  /*previous color hsl(360, 91%, 36%)*/
+  background-color:orangered;
+  border-radius: 18px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
     0px;
   color: hsl(0, 0%, 100%);
