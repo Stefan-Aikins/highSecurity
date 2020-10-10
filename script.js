@@ -41,6 +41,7 @@ function passwordCriteria() {
         alert("Your password must contain at least one lowerscase, uppercase, number and a special character");
     }
 
+    //declaring an object for criteria values
     var criteriaQuestions = {
         lengthOfPassword: passwordLength,
         smallLetters: confirmLowercase,
@@ -88,30 +89,32 @@ function generatePassword() {
         console.log(passwordStream)
     }
 
-    debugger
+    //debugger
     var finalPassword = [];
 
     for (let i = 0; i < options.lengthOfPassword; ++i) {
 
-        /*var silly= passwordStream.length;
+        /*var count= passwordStream.length;
         var passLenFloor= Math.floor(silly);
         var rand = Math.random();
-        var randomSelector = Math.floor(rand * passLenFloor);*/
+        var randomSelector = Math.floor(rand * passLenFloor);
+        Generate random password*/
         var randomSelector = Math.floor(Math.random() * Math.floor(passwordStream.length));
         finalPassword.push(passwordStream[randomSelector])
     }
 
+    //Show in the browser console
     console.log(finalPassword)
-
+    // concatenate chosen criteria and show in the console
     var superFinal = finalPassword.join('');
     console.log(superFinal)
-
+    //output should be the exact value of the content
     passwordText.textContent = superFinal;
 
 }
 
 var password = "";
-
+//generate password when the generate password button is clicked
 generateBtn.addEventListener('click', generatePassword);
 
 
