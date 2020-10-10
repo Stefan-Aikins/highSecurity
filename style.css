@@ -1,9 +1,12 @@
+/*the size of content of all element will adjust to match the size of width 
+and height set while the border and padding remain constant*/
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
+/*fitting height to the view port without marging and padding*/
 html,
 body,
 .wrapper {
@@ -12,17 +15,21 @@ body,
   padding: 0;
 }
 
+
 body {
+    /*choosing a font*/
   font-family: sans-serif;
   background-color: #e1f2fb;/*#f9fbfd;*/
 }
 
+/*spacing within the parent div*/
 .wrapper {
   padding-top: 30px;
   padding-left: 20px;
   padding-right: 20px;
 }
 
+/*placing the header at the centre with color annds spacing applied*/
 header {
   text-align: center;
   padding: 20px;
@@ -30,29 +37,35 @@ header {
   color: hsl(206, 17%, 28%);
 }
 
+/*This is the first column, it contains the h2, img and anchor tags*/
 .intro{
     text-align: center;
 }
 
+/*background color and margin to the help button*/
 .intro button{
     background-color: lightgrey;
     margin-bottom: 15px;
 }
 
+/*placing the mouse on the help button will turn grey*/
 .button-two:hover{
     background-color: gray;
 }
 
+/*make this list item thick*/
 ul li{
     font-weight: bold;
 }
 
-/* styling app haeding level two*/
+
+/* styling app heading level two*/
 #app-name{
     font-weight: bold;
     color: grey;/*rgb(104, 98, 88);*/
 }
 
+/*placing this bold, rred text on the left*/
 div h4{
     text-align: left;
     color: red;
@@ -60,7 +73,7 @@ div h4{
     margin-top: 30px;
 }
 
-/*lock icon*/
+/*resizing and spacing the lock image*/
 #lock{
     width: 70%;
     height: 230px;
@@ -68,6 +81,7 @@ div h4{
     margin-bottom: 24px;
 }
 
+/*styling the main body of the page*/
 .card {
   background-color: hsl(0, 0%, 100%);
   border-radius: 5px;
@@ -80,6 +94,7 @@ div h4{
   padding: 30px 40px;
 }
 
+/*this instruction given on the page should fill the view port of its column*/
 .card-header::after {
   content: " ";
   display: block;
@@ -88,14 +103,17 @@ div h4{
   height: 2px;
 }
 
+/*height should not exceed thsi limit*/
 .card-body {
   min-height: 100px;
 }
 
+/*position this content in the middle of its parent*/
 .card-footer {
   text-align: center;
 }
 
+/*fill the entire view port*/
 .card-footer::before {
   content: " ";
   display: block;
@@ -104,16 +122,17 @@ div h4{
   height: 2px;
 }
 
+/*no element should float on the left or right side*/
 .card-footer::after {
   content: " ";
   display: block;
   clear: both;
 }
 
-.btn {
+/*placing the text in the middle of the curved button with no border*/
+.btn{
   border: none;
-
-  /*previous color hsl(360, 91%, 36%)*/
+/*previous color hsl(360, 91%, 36%)*/
   background-color: orangered;
   border-radius: 18px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
@@ -128,6 +147,7 @@ div h4{
   cursor: pointer;
 }
 
+/*button should turn red when I point the mouse*/
 .btn-hov:hover{
     background-color: red;
 }
@@ -137,10 +157,11 @@ button[disabled] {
   background: #c0c7cf;
 }
 
+
 .float-right {
   float: right;
 }
-
+/*text-box containing password should be placed in the middle of the column*/
 #password {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -161,7 +182,7 @@ button[disabled] {
   resize: none;
   overflow: hidden;
 }
-
+/**/
 @media (max-width: 690px) {
   .btn {
     font-size: 1rem;
@@ -169,6 +190,7 @@ button[disabled] {
     padding: 10px 15px;
   }
 
+  /*password generated should be this big*/
   #password {
     font-size: 1rem;
   }
