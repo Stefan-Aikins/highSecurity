@@ -137,11 +137,18 @@ var specialCharaters = ['#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '.', '
 
 //1. present user with series of prompts for password criteria
 
-function generatePassword() {
-    prompt('uppercase')
-    prompt('lowercase')
-    prompt('numbers')
-    prompt('special characters')
+function generatePassword(criteria) {
+    var criteriaPrompts = ['uppercase','lowercase','numbers','specialCharaters',]
+    //password criteria
+    for (var i = 0; i < criteriaPrompts.length; i++){
+    var passwordCriteria = prompt('Do you want to include?',criteriaPrompts[i])
+    }
+    // password length
+    var charaterlength = prompt('How many characters long')
+
+    //limit to password length is 8-128 characters long
+    
+
 }
 
 
