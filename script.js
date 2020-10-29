@@ -1,4 +1,6 @@
 
+/*
+
 // Naming the password generate button  
 var generateBtn = document.querySelector("#generate");
 
@@ -18,7 +20,7 @@ function passwordCriteria() {
     var passwordLength = parseInt(prompt("How many characters do you prefer?, NB: Password must be minimum of 8 characters"));
 
     /*the length is validated once the user does not receive alerts
-    NB: User receives alert once charater length do not match */
+    NB: User receives alert once charater length do not match  /ADD THE CLOSING COMMENT HERE/
 
     if (passwordLength < 8) {
         alert('The password must be at least 8 characters!');
@@ -98,7 +100,7 @@ function generatePassword() {
         var passLenFloor= Math.floor(silly);
         var rand = Math.random();
         var randomSelector = Math.floor(rand * passLenFloor);
-        Generate random password*/
+        Generate random password  /ADD THE CLOSING COMMENT HERE/
         var randomSelector = Math.floor(Math.random() * Math.floor(passwordStream.length));
         finalPassword.push(passwordStream[randomSelector])
     }
@@ -117,5 +119,5 @@ var password = "";
 //generate password when the generate password button is clicked
 generateBtn.addEventListener('click', generatePassword);
 
-
+*/
 
